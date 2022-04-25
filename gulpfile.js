@@ -1,6 +1,6 @@
 const gulp = require("gulp");
 const del = require("del");
-const browserSync = require('browser-sync').create();
+const browserSync = require("browser-sync").create();
 
 /**
  * Очищаем папку dist
@@ -13,8 +13,8 @@ const clean = () => {
  * Копируем все содержимое из папки src в dist
  */
 const copy = () => {
-  return gulp.src('src/**/*.*')
-    .pipe(gulp.dest('build'))
+  return gulp.src("src/**/*.*")
+    .pipe(gulp.dest("build"))
 };
 
 /**
@@ -24,11 +24,11 @@ const copy = () => {
 const server = () => {
   browserSync.init({
     server: {
-      baseDir: './build'
+      baseDir: "./build"
     }
   });
 
-  gulp.watch('src/**/*').on('all', gulp.series(copy, browserSync.reload));
+  gulp.watch("src/**/*").on("all", gulp.series(copy, browserSync.reload));
 };
 
 exports.default = gulp.series(clean, copy, server);
