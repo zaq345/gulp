@@ -20,7 +20,6 @@ const copy = () => {
 /**
  * Запускаем сервер
  */
-
 const server = () => {
   browserSync.init({
     server: {
