@@ -1,0 +1,11 @@
+body {
+  margin: 0;
+  background-color: #f3f4f6;
+  color: #111111;
+}
+
+h1 {
+  margin: 15px;
+  font-weight: 700;
+  font-size: 30px;
+}
