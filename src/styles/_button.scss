@@ -1,3 +1,23 @@
+@mixin makeButton($bkg-color, $font-color, $font-size, $rad) {
+  background-color: $bkg-color;
+  color: $font-color;
+  font-size: $font-size;
+  border-radius: $rad;
+
+  min-width: 125px;
+  height: 50px;
+
+  padding: 0.5em, 1.2em;
+  &:hover{
+    cursor: pointer;
+    filter: brightness(150%);
+  }
+  &:disabled{
+    cursor: default;
+    filter: brightness(50%);
+  }
+}
+
 .btn{
   background-color: blue;
   min-width: 125px;
@@ -8,4 +28,7 @@
 .btn-off{
   @extend .btn;
   background-color: gray;
+}
+.test-mixin{
+  @include makeButton(rgb(182, 41, 41), white, 1em, 5px)
 }
