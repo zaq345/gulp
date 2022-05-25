@@ -2,6 +2,12 @@ const gulp = require("gulp");
 const del = require("del");
 const browserSync = require("browser-sync").create();
 const sass = require('gulp-sass')(require('sass'));
+//
+const sourcemaps = require('gulp-sourcemaps');
+const sassGlob = require('gulp-sass-glob');
+const autoprefixer = require('gulp-autoprefixer');
+const gcmq = require('gulp-group-css-media-queries');
+const cleanCSS = require('gulp-clean-css');
 
 /**
  * Очищаем папку dist
@@ -46,10 +52,22 @@ const watchers = (done) => {
 // компиляция стилей
 const styles = () => {
   return gulp.src('src/styles/main.scss')
+  .pipe(sourcemaps.init()) 
+  .pipe(sassGlob())
   .pipe(sass().on('error', sass.logError))
+  .pipe(autoprefixer(['last 15 versions'])) 
+  .pipe(cleanCSS())
+  .pipe(gcmq())
+  .pipe(sourcemaps.write()) 
   .pipe(gulp.dest('./dist/styles'))
-  .pipe(browserSync.stream()); // Перезагружаем локальный сервер
+  .pipe(browserSync.stream()); 
 };
 
+/**
+ * настройка работы плагинов: gulp-sourcemaps, gulp-sass-glob, 
+ * autoprefixer, gulp-group-css-media-queries, gulp-clean-css.
+ * (вернее попытка)
+ */
+ 
 exports.default = gulp.series(clean, copy, styles, server, watchers);
 
