@@ -37,3 +37,60 @@
 .px2em{
   font-size: px2em(32);
 }
+
+.menu{
+  //@include makeButton(rgb(255, 163, 57), white, 1em, 5px);
+  width: 250px;
+  display: flex;
+
+  ul {
+    padding:0;
+    margin:auto;
+    list-style: none;
+    position: relative;
+
+    min-width: 250px;
+
+    li {
+      //margin: 0px -7px 0 0;
+      //display:inline-block;
+      background-color: rgb(255, 163, 57);
+
+      &:hover > ul {
+        display:inherit;
+      }
+    }
+
+    ul {
+      display: none;
+      position: absolute;
+      top: 100%;
+
+      li {
+        min-width:170px;
+        display:list-item;
+        position: relative;
+        background-color: rgb(255, 180, 119);
+      }
+
+      ul {
+        position: absolute;
+        top:0;
+        left:100%;
+      }
+    }
+  }
+  
+  a {
+    display:block;
+    padding:0 10px;
+    color:#FFF;
+    //font-size:20px;
+    //line-height: 60px;
+    text-decoration:none;
+    &:hover {
+      background-color: #000000;
+    }
+  }
+}
+
