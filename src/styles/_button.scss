@@ -39,7 +39,7 @@ $themePallete: (
   danger: #ff1a1a
 );
 
-
+/*
 .btn{
   background-color: blue;
   min-width: 125px;
@@ -57,4 +57,4 @@ $themePallete: (
 
 .test-mixin-1{
   @include createThemeButtons($themePallete, #dff333, #707070, 1em, 10px)
-}
+}*/
