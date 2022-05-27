@@ -7,43 +7,54 @@
   <link rel="stylesheet" href="/styles/main.css">
 </head>
 <body>
-<h1>BrowserSync dev server runned!</h1>
-<h2>Hello, World!</h2>
 
 <!-- 7 задание -->
 <div class="menu">
-  <ul>
-    <li><a href="#">Каталог товаров</a>
+  <ul class="menu__first-list">
+    <li class="menu__first-list-item"><a class="menu__button" href="#">Каталог товаров</a>
 
-      <ul>
-        <li><a href="#">Themes</a>
-          <ul>
-            <li><a href="#">Stuff 1</a></li>
-            <li><a href="#">Things 1</a></li>
-            <li><a href="#">Other Stuff 1</a></li>
+      <ul class="menu__second-list">
+
+        <li class="menu__second-list-item"><a class="menu__button" href="#">Themes</a>
+
+          <ul class="menu__third-list">
+
+            <li><a class="menu__button" href="#">Stuff 1</a></li>
+            <li><a class="menu__button" href="#">Things 1</a></li>
+            <li><a class="menu__button" href="#">Other Stuff 1</a></li>
+
           </ul>
+
         </li>
           
-        <li><a href="#">Plugins</a>
-          <ul>
-            <li><a href="#">Stuff 2</a></li>
-            <li><a href="#">Things 2</a></li>
-            <li><a href="#">Other Stuff 2</a></li>
-          </ul>
-        </li>
-        <li><a href="#">Tutorials</a>
-          <ul>
-              <li><a href="#">Stuff 3</a></li>
-              <li><a href="#">Things 3</a></li>
-              <li><a href="#">Other Stuff 3</a></li>
-          </ul>
-        </li>
-      </ul>
-      
-    </li>
-      
-  </ul>
+        <li class="menu__second-list-item"><a class="menu__button" href="#">Plugins</a>
 
+          <ul class="menu__third-list">
+
+            <li><a class="menu__button" href="#">Stuff 2</a></li>
+            <li><a class="menu__button" href="#">Things 2</a></li>
+            <li><a class="menu__button" href="#">Other Stuff 2</a></li>
+
+          </ul>
+
+        </li>
+
+        <li class="menu__second-list-item"><a class="menu__button" href="#">Tutorials</a>
+
+          <ul class="menu__third-list">
+
+              <li><a class="menu__button" href="#">Stuff 3</a></li>
+              <li><a class="menu__button" href="#">Things 3</a></li>
+              <li><a class="menu__button" href="#">Other Stuff 3</a></li>
+          
+            </ul>
+
+        </li>
+
+      </ul>
+
+    </li> 
+  </ul>
 </div>
 
 <br>
@@ -67,7 +78,7 @@
 
 <!-- тест 4 задания -->
 <button class="btn">Активная</button>
-<button class="btn-off" disabled="disabled">Отключенная</button>
+<button class="btn" disabled>Отключенная</button>
 
 <!-- тест 5 задания -->
 <button class="test-mixin" >test-mixin</button>

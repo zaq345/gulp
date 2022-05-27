@@ -55,9 +55,9 @@ const styles = () => {
   .pipe(sourcemaps.init()) 
   .pipe(sassGlob())
   .pipe(sass().on('error', sass.logError))
-  .pipe(autoprefixer(['last 15 versions'])) 
-  .pipe(cleanCSS())
+  .pipe(autoprefixer(['last 4 versions'])) 
   .pipe(gcmq())
+  .pipe(cleanCSS())
   .pipe(sourcemaps.write()) 
   .pipe(gulp.dest('./dist/styles'))
   .pipe(browserSync.stream()); 
