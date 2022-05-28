@@ -1,0 +1,3 @@
+@function px2em($px1, $px2){
+  @return calc($px1 / $px2)+em;
+}

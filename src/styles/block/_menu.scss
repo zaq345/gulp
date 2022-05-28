@@ -1,0 +1,119 @@
+// 7 задание
+.menu{
+  //@include makeButton(rgb(255, 163, 57), white, 1em, 5px);
+  width: 250px;
+  display: flex;
+  
+
+  ul/*.menu__first-list*/ {
+    padding:0;
+    margin:auto;
+    list-style: none;
+    position: relative;
+
+    min-width: 250px;
+
+    li/*.menu__first-list-item*/ {
+      //margin: 0px -7px 0 0;
+      //display:inline-block;
+      background-color: rgb(255, 163, 57);
+
+      &:hover > ul {
+        display:inherit;
+      }
+    }
+
+    ul/*.menu__second-list*/ {
+      display: none;
+      position: absolute;
+      top: 100%;
+
+      li/*.menu__second-list-item*/ {
+        min-width:170px;
+        display:list-item;
+        position: relative;
+        background-color: rgb(255, 180, 119);
+      }
+
+      ul/*.menu__third-list*/ {
+        position: absolute;
+        top:0;
+        left:100%;
+      }
+    }
+  }
+  
+  .menu__button {
+    display:block;
+    padding:0 10px;
+    color:#FFF;
+    //font-size:20px;
+    //line-height: 60px;
+    text-decoration:none;
+    &:hover {
+      background-color: #000000;
+    }
+  }
+  
+}
+
+// .menu{
+//   //@include makeButton(rgb(255, 163, 57), white, 1em, 5px);
+//   width: 250px;
+//   display: flex;
+  
+
+//   /*ul*/.menu__first-list {
+//     padding:0;
+//     margin:auto;
+//     list-style: none;
+//     position: relative;
+
+//     min-width: 250px;
+
+//     /*li*/.menu__first-list-item {
+//       //margin: 0px -7px 0 0;
+//       //display:inline-block;
+//       background-color: rgb(255, 163, 57);
+
+//       &:hover > /*ul*/ .menu__second-list {
+//         display:inherit;
+//       }
+//     }
+
+//     /*ul*/.menu__second-list {
+//       display: none;
+//       position: absolute;
+//       top: 100%;
+//       list-style: inherit;
+
+//       /*li*/.menu__second-list-item {
+//         min-width:170px;
+//         display:list-item;
+//         position: relative;
+//         background-color: rgb(255, 180, 119);
+//       }
+
+//       /*ul*/.menu__third-list {
+//         position: absolute;
+//         top:0;
+//         left:100%;
+//         background-color: inherit;
+//         list-style: inherit;
+//       }
+//     }
+//   }
+  
+//   .menu__button {
+//     display:block;
+//     padding:0 10px;
+//     color:#FFF;
+//     //font-size:20px;
+//     //line-height: 60px;
+//     text-decoration:none;
+//     &:hover {
+//       background-color: #000000;
+//     }
+//   }
+  
+// }
