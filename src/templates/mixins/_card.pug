@@ -1,0 +1,25 @@
+mixin card(imagePath, name, parameters, price)
+  .card
+    .card__wrapper
+      .card__up
+        if imagePath
+          img.card__foto(src=imagePath, alt="Изображение товара")
+        else 
+          img.card__foto(src="./images/noProduct.png", alt="Изображение товара отсутствует")
+      .card__down
+        .card__down__wrapper
+          .card__name= name
+          .card__parameters 
+            each parameter, nameParameter  in parameters
+              p.card__parameter= nameParameter+parameter
+            //- p.card__parameter= "Вид: "+parameters[0]
+            //- p.card__parameter= "Марка: "+parameters[1]
+            //- p.card__parameter= "Поверхность: "+parameters[2]
+            //- p.card__parameter= "Размер: "+parameters[3]
+            //- p.card__parameter= "Формат: "+parameters[4]
+            //- p.card__parameter= "Цвет: "+parameters[5]
+          
+          if price 
+            .card__price= price+" Руб/шт"
+          else 
+            .card__price= "Цена по запросу"

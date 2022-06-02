@@ -49,6 +49,7 @@ const watchers = (done) => {
   //gulp.watch('src/**/*.html').on('all', gulp.series(copy, reload));
   gulp.watch('src/**/*.pug', gulp.series(compilePug, reload));
   gulp.watch('src/**/*.scss', gulp.series(compileScss));
+  gulp.watch('src/assets/*.*', gulp.series(copyImg, reload));
   done();
 };
 
@@ -79,5 +80,4 @@ const copyImg = () => {
     .pipe(gulp.dest("dist/images"))
 };
 
-//exports.default = gulp.series(clean, copy, styles, server, watchers);
 exports.default = gulp.series(clean, copyImg, compilePug, compileScss, watchers, server); 
