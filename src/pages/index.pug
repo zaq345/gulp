@@ -1,11 +1,11 @@
 extends ../templates/layout/baseLayout
 
 block variables
-  title Продвинутая вёрстка
+  - var title= "Продвинутая вёрстка"
 
 block main
-  +button("text1", "button_big", "button__class")
-  +button("text2", "button_small", "button__class", true)
+  +button("text1", "button_big", "button_modificator")
+  +button("text2", "button_small", "button_class", true)
 
   br 
   br
