@@ -1,0 +1,18 @@
+mixin card(imagePath, name, parameters, price)
+  .card
+    .card__wrapper
+      .card__up
+        if imagePath
+          img.card__foto(src=imagePath, alt="Изображение товара")
+        else 
+          img.card__foto(src="./images/noProduct.png", alt="Изображение товара отсутствует")
+      .card__down
+        .card__down-wrapper
+          .card__name= name
+          .card__parameters 
+            each parameter, nameParameter  in parameters
+              p.card__parameter= nameParameter+parameter
+          if price 
+            .card__price= price+" Руб/шт"
+          else 
+            .card__price= "Цена по запросу"

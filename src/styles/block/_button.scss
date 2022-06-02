@@ -57,23 +57,3 @@ $themePallete: (
   @extend .btn;
   background-color: gray;
 }
-
-/*
-.btn{
-  background-color: blue;
-  min-width: 125px;
-  height: 50px;
-  border-radius: 5px;
-  color: #ffffff;
-}
-.btn-off{
-  @extend .btn;
-  background-color: gray;
-}
-.test-mixin{
-  @include makeButton(rgb(182, 41, 41), white, 1em, 5px)
-}
-
-.test-mixin-1{
-  @include createThemeButtons($themePallete, #dff333, #707070, 1em, 10px)
-}*/

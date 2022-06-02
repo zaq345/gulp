@@ -1,0 +1,60 @@
+.card{
+  width: 250px;
+  height: 400px;
+  margin: 10px;
+  border: 1px solid lightgrey;
+  display: flex;
+
+  &__wrapper{
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__up{
+    display: flex;
+    width: 250px;
+    height: 200px;
+    border-bottom: 1px solid lightgray;
+  }
+
+  &__foto{
+    width: 160px;
+    height: 160px;
+
+    margin: auto;
+    padding: 20px;
+  }
+
+  &__down{
+    display: flex;
+
+    &__wrapper{
+      padding: 20px;
+      width: 210px;
+      height: 160px;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+  }
+
+  &__name{
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  &__parameters{
+    color: gray;
+    margin-bottom: 10px;
+  }
+
+  &__parameter{
+    margin: 0;
+    font-size: 12px;
+  }
+
+  &__price{
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+}

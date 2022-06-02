@@ -9,6 +9,8 @@ const autoprefixer = require('gulp-autoprefixer');
 const gcmq = require('gulp-group-css-media-queries');
 const cleanCSS = require('gulp-clean-css');
 
+const pug = require('gulp-pug');
+
 /**
  * Очищаем папку dist
  */
@@ -19,10 +21,10 @@ const clean = () => {
 /**
  * Копируем все содержимое из папки src в dist
  */
-const copy = () => {
-  return gulp.src("src/**/*.html")
-    .pipe(gulp.dest("dist"))
-};
+// const copy = () => {
+//   return gulp.src("src/**/*.html")
+//     .pipe(gulp.dest("dist"))
+// };
 
 /**
  * Запускаем сервер
@@ -44,13 +46,15 @@ const reload = (done) => {
 
 // следим за html
 const watchers = (done) => {
-  gulp.watch('src/**/*.html').on('all', gulp.series(copy, reload));
-  gulp.watch('src/**/*.scss', gulp.series(styles));
+  //gulp.watch('src/**/*.html').on('all', gulp.series(copy, reload));
+  gulp.watch('src/**/*.pug', gulp.series(compilePug, reload));
+  gulp.watch('src/**/*.scss', gulp.series(compileScss));
+  gulp.watch('src/assets/*.*', gulp.series(copyImg, reload));
   done();
 };
 
 // компиляция стилей
-const styles = () => {
+const compileScss = () => {
   return gulp.src('src/styles/main.scss')
   .pipe(sourcemaps.init()) 
   .pipe(sassGlob())
@@ -63,11 +67,17 @@ const styles = () => {
   .pipe(browserSync.stream()); 
 };
 
-/**
- * настройка работы плагинов: gulp-sourcemaps, gulp-sass-glob, 
- * autoprefixer, gulp-group-css-media-queries, gulp-clean-css.
- * (вернее попытка)
- */
- 
-exports.default = gulp.series(clean, copy, styles, server, watchers);
+const compilePug = () => {
+  return gulp.src('src/pages/*.pug')
+  .pipe(pug({
+    pretty: true,
+  }))
+  .pipe(gulp.dest('dist'))
+}
 
+const copyImg = () => {
+  return gulp.src("src/assets/*.*")
+    .pipe(gulp.dest("dist/images"))
+};
+
+exports.default = gulp.series(clean, copyImg, compilePug, compileScss, watchers, server); 

@@ -3,53 +3,8 @@
 @import './block/button';
 @import './block/menu';
 
-// стили для 3 задания из первых 2х импортов
-.font{
-  &__small{
-    font-size: $small-font-size;
-  }
-  &__medium{
-    font-size: $normal-font-size;
-  }
-  &__big{
-    font-size: $big-font-size;
-  }
-  &__base{
-    font-size: $base-font-size;
-  }
-}
-
-.color{
-  display: flex;
-  &>div{
-    width: 100px;
-    height: 100px;
-  }
-  &__first{
-    background-color: $light-green;
-  }
-  &__second{
-    background-color: $light-blue;
-  }
-  &__third{
-    background-color: $light-violet;
-  }
-}
-
-.px2em{
-  font-size: px2em(32,16);
-}
+@import './block/card';
+@import './block/table';
 
 
-
-
-
-//5 задание
-.test-mixin{
-  @include makeButton(rgb(182, 41, 41), white, 16px, 5px)
-}
-//6 задание
-.test-mixin-1{
-  @include createThemeButtons($themePallete, #dff333, #707070, 16px, 10px)
-}
 
