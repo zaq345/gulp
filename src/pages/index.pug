@@ -1,5 +1,7 @@
 extends ../templates/layout/baseLayout
 
+//-include ../templates/mixins/_card
+
 block variables
   - var title= "Продвинутая вёрстка"
 
@@ -40,3 +42,5 @@ block main
     each element in elementList
       +card(element[0], element[1], element[2], element[3])
 
+  script(src="./main.js") 
+  

@@ -11,6 +11,9 @@ const cleanCSS = require('gulp-clean-css');
 
 const pug = require('gulp-pug');
 
+var concat = require('gulp-concat');
+const babel = require('gulp-babel');
+
 /**
  * Очищаем папку dist
  */
@@ -50,6 +53,7 @@ const watchers = (done) => {
   gulp.watch('src/**/*.pug', gulp.series(compilePug, reload));
   gulp.watch('src/**/*.scss', gulp.series(compileScss));
   gulp.watch('src/assets/*.*', gulp.series(copyImg, reload));
+  gulp.watch('src/**/*.js', gulp.series(concatJS, reload));
   done();
 };
 
@@ -76,8 +80,19 @@ const compilePug = () => {
 }
 
 const copyImg = () => {
-  return gulp.src("src/assets/*.*")
+  return gulp.src('src/assets/*.*')
     .pipe(gulp.dest("dist/images"))
 };
 
-exports.default = gulp.series(clean, copyImg, compilePug, compileScss, watchers, server); 
+const concatJS = () => {
+  return gulp.src('./src/js/*.js')
+  .pipe(sourcemaps.init()) 
+  .pipe(concat('main.js'))
+  .pipe(babel({
+    presets: ['@babel/env']
+  }))
+  .pipe(sourcemaps.write()) 
+  .pipe(gulp.dest('dist/js'))
+};
+
+exports.default = gulp.series(clean, copyImg, compilePug, compileScss, concatJS, watchers, server); 
