@@ -95,4 +95,9 @@ const concatJS = () => {
   .pipe(gulp.dest('dist/js'))
 };
 
-exports.default = gulp.series(clean, copyImg, compilePug, compileScss, concatJS, watchers, server); 
+const copyVendorsJS = () => {
+  return gulp.src('src/js/vendors/*.js')
+    .pipe(gulp.dest("dist/js"))
+};
+
+exports.default = gulp.series(clean, copyImg, copyVendorsJS, compilePug, compileScss, concatJS, watchers, server); 

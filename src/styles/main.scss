@@ -1,3 +1,6 @@
+@import './vendors/slick.scss';
+@import './vendors/slick-theme.scss';
+
 @import './variable';
 @import './helpers';
 @import './block/button';
@@ -5,6 +8,8 @@
 
 @import './block/card';
 @import './block/table';
+@import './block/slider';
+
 
 
 
