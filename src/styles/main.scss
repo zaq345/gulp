@@ -1,8 +1,9 @@
-@import './vendors/slick.scss';
-@import './vendors/slick-theme.scss';
-
 @import './variable';
 @import './helpers';
+
+@import './vendors/slick';
+@import './vendors/slick-theme';
+
 @import './block/button';
 @import './block/menu';
 

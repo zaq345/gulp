@@ -54,6 +54,7 @@ const watchers = (done) => {
   gulp.watch('src/**/*.scss', gulp.series(compileScss));
   gulp.watch('src/assets/*.*', gulp.series(copyImg, reload));
   gulp.watch('src/**/*.js', gulp.series(concatJS, reload));
+  gulp.watch('src/assets/slick/*.*', gulp.series(reload))
   done();
 };
 
@@ -81,7 +82,7 @@ const compilePug = () => {
 
 const copyImg = () => {
   return gulp.src('src/assets/*.*')
-    .pipe(gulp.dest("dist/images"))
+    .pipe(gulp.dest("dist/images"));
 };
 
 const concatJS = () => {
@@ -92,12 +93,17 @@ const concatJS = () => {
     presets: ['@babel/env']
   }))
   .pipe(sourcemaps.write()) 
-  .pipe(gulp.dest('dist/js'))
+  .pipe(gulp.dest('dist/js'));
 };
 
 const copyVendorsJS = () => {
   return gulp.src('src/js/vendors/*.js')
-    .pipe(gulp.dest("dist/js"))
+    .pipe(gulp.dest("dist/js"));
 };
 
-exports.default = gulp.series(clean, copyImg, copyVendorsJS, compilePug, compileScss, concatJS, watchers, server); 
+const copySlickFiles = () => {
+  return gulp.src('src/assets/slick/**')
+    .pipe(gulp.dest("dist/styles"));
+};
+
+exports.default = gulp.series(clean, copyImg, copyVendorsJS, copySlickFiles, compilePug, compileScss, concatJS, watchers, server); 

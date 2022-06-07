@@ -1,5 +1,5 @@
 mixin slider(imagePath)
-  .pictures
+  .slider
     each path in imagePath 
-
-      img.pic(src=path, alt="Изображение товара")
+      .pic-wrapper
+        img.pic-wrapper__pic(src=path, alt="Изображение товара")
