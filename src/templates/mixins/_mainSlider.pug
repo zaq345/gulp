@@ -1,0 +1,5 @@
+mixin slider(imagePath)
+  .slider
+    each path in imagePath 
+      .pic-wrapper
+        img.pic-wrapper__pic(src=path, alt="Изображение товара")

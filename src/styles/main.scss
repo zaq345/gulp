@@ -1,10 +1,16 @@
 @import './variable';
 @import './helpers';
+
+@import './vendors/slick';
+@import './vendors/slick-theme';
+
 @import './block/button';
 @import './block/menu';
 
 @import './block/card';
 @import './block/table';
+@import './block/slider';
+
 
 
 
