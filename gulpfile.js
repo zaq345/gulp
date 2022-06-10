@@ -14,15 +14,14 @@ const pug = require('gulp-pug');
 const concat = require('gulp-concat');
 const babel = require('gulp-babel');
 
-const {SRC_PATH, DIST_PATH} = require('./gulp.config')
 const gulpif = require('gulp-if');
+const {SRC_PATH, DIST_PATH} = require('./gulp.config')
 const env = process.env.NODE_ENV;
 
 /**
  * Очищаем папку dist
  */
 const clean = () => {
-  console.log(env);
   return del(DIST_PATH);
 };
 
@@ -46,17 +45,17 @@ const reload = (done) => {
 
 // следим за html
 const watchers = (done) => {
-  gulp.watch(SRC_PATH+'/**/*.pug', gulp.series(compilePug, reload));
-  gulp.watch(SRC_PATH+'/**/*.scss', gulp.series(compileScss));
-  gulp.watch(SRC_PATH+'/assets/*.*', gulp.series(copyImg, reload));
-  gulp.watch(SRC_PATH+'/**/*.js', gulp.series(concatJS, reload));
-  gulp.watch(SRC_PATH+'/assets/slick/*.*', gulp.series(reload))
+  gulp.watch(SRC_PATH + '/**/*.pug', gulp.series(compilePug, reload));
+  gulp.watch(SRC_PATH + '/**/*.scss', gulp.series(compileScss));
+  gulp.watch(SRC_PATH + '/assets/*.*', gulp.series(copyImg, reload));
+  gulp.watch(SRC_PATH + '/**/*.js', gulp.series(concatJS, reload));
+  gulp.watch(SRC_PATH + '/assets/slick/*.*', gulp.series(reload))
   done();
 };
 
 // компиляция стилей
 const compileScss = () => {
-  return gulp.src(SRC_PATH+'/styles/main.scss')
+  return gulp.src(SRC_PATH + '/styles/main.scss')
   .pipe(gulpif(env === "serve", sourcemaps.init())) 
   .pipe(sassGlob())
   .pipe(sass().on('error', sass.logError))
@@ -64,12 +63,12 @@ const compileScss = () => {
   .pipe(gulpif(env === "build", gcmq()))
   .pipe(gulpif(env === "build", cleanCSS()))
   .pipe(gulpif(env === "serve", sourcemaps.write())) 
-  .pipe(gulp.dest(DIST_PATH+'/styles'))
+  .pipe(gulp.dest(DIST_PATH + '/styles'))
   .pipe(browserSync.stream()); 
 };
 
 const compilePug = () => {
-  return gulp.src(SRC_PATH+'/pages/*.pug')
+  return gulp.src(SRC_PATH + '/pages/*.pug')
   .pipe(pug({
     pretty: true,
   }))
@@ -77,43 +76,35 @@ const compilePug = () => {
 }
 
 const copyImg = () => {
-  return gulp.src(SRC_PATH+'/assets/*.*')
-    .pipe(gulp.dest(DIST_PATH+'/images'));
+  return gulp.src(SRC_PATH + '/assets/*.*')
+    .pipe(gulp.dest(DIST_PATH + '/images'));
 };
 
 const concatJS = () => {
-  return gulp.src(SRC_PATH+'/js/*.js')
+  return gulp.src(SRC_PATH + '/js/*.js')
   .pipe(gulpif(env === "serve", sourcemaps.init())) 
   .pipe(concat('main.js'))
   .pipe(gulpif(env === "build", babel({
     presets: ['@babel/env']
   })))
   .pipe(gulpif(env === "serve", sourcemaps.write())) 
-  .pipe(gulp.dest(DIST_PATH+'/js'));
+  .pipe(gulp.dest(DIST_PATH + '/js'));
 };
 
 const copyVendorsJS = () => {
-  return gulp.src(SRC_PATH+'/js/vendors/*.js')
-    .pipe(gulp.dest(DIST_PATH+'/js'));
+  return gulp.src(SRC_PATH + '/js/vendors/*.js')
+    .pipe(gulp.dest(DIST_PATH + '/js'));
 };
 
 const copySlickFiles = () => {
-  return gulp.src(SRC_PATH+'/assets/slick/**')
-    .pipe(gulp.dest(DIST_PATH+'/styles'));
+  return gulp.src(SRC_PATH + '/assets/slick/**')
+    .pipe(gulp.dest(DIST_PATH + '/styles'));
 };
-
-/*exports.default = gulp.series(
-  clean, 
-  gulp.parallel(copyImg, copyVendorsJS, copySlickFiles, compilePug, compileScss, concatJS), 
-  watchers, 
-  server
-); */
 
 exports.serve = gulp.series(
   clean, 
   gulp.parallel(copyImg, copyVendorsJS, copySlickFiles, compilePug, compileScss, concatJS), 
-  watchers, 
-  server
+  gulp.parallel(watchers, server)
 ); 
 
 exports.build = gulp.series(
