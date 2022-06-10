@@ -11,23 +11,19 @@ const cleanCSS = require('gulp-clean-css');
 
 const pug = require('gulp-pug');
 
-var concat = require('gulp-concat');
+const concat = require('gulp-concat');
 const babel = require('gulp-babel');
+
+const gulpif = require('gulp-if');
+const {SRC_PATH, DIST_PATH} = require('./gulp.config')
+const env = process.env.NODE_ENV;
 
 /**
  * Очищаем папку dist
  */
 const clean = () => {
-  return del("dist");
+  return del(DIST_PATH);
 };
-
-/**
- * Копируем все содержимое из папки src в dist
- */
-// const copy = () => {
-//   return gulp.src("src/**/*.html")
-//     .pipe(gulp.dest("dist"))
-// };
 
 /**
  * Запускаем сервер
@@ -35,7 +31,7 @@ const clean = () => {
 const server = (done) => {
   browserSync.init({
     server: {
-      baseDir: "./dist"
+      baseDir: DIST_PATH
     }
   });
   done();
@@ -49,61 +45,69 @@ const reload = (done) => {
 
 // следим за html
 const watchers = (done) => {
-  //gulp.watch('src/**/*.html').on('all', gulp.series(copy, reload));
-  gulp.watch('src/**/*.pug', gulp.series(compilePug, reload));
-  gulp.watch('src/**/*.scss', gulp.series(compileScss));
-  gulp.watch('src/assets/*.*', gulp.series(copyImg, reload));
-  gulp.watch('src/**/*.js', gulp.series(concatJS, reload));
-  gulp.watch('src/assets/slick/*.*', gulp.series(reload))
+  gulp.watch(SRC_PATH + '/**/*.pug', gulp.series(compilePug, reload));
+  gulp.watch(SRC_PATH + '/**/*.scss', gulp.series(compileScss));
+  gulp.watch(SRC_PATH + '/assets/*.*', gulp.series(copyImg, reload));
+  gulp.watch(SRC_PATH + '/**/*.js', gulp.series(concatJS, reload));
+  gulp.watch(SRC_PATH + '/assets/slick/*.*', gulp.series(reload))
   done();
 };
 
 // компиляция стилей
 const compileScss = () => {
-  return gulp.src('src/styles/main.scss')
-  .pipe(sourcemaps.init()) 
+  return gulp.src(SRC_PATH + '/styles/main.scss')
+  .pipe(gulpif(env === "serve", sourcemaps.init())) 
   .pipe(sassGlob())
   .pipe(sass().on('error', sass.logError))
-  .pipe(autoprefixer(['last 4 versions'])) 
-  .pipe(gcmq())
-  .pipe(cleanCSS())
-  .pipe(sourcemaps.write()) 
-  .pipe(gulp.dest('./dist/styles'))
+  .pipe(gulpif(env === "build", autoprefixer(['last 4 versions']))) 
+  .pipe(gulpif(env === "build", gcmq()))
+  .pipe(gulpif(env === "build", cleanCSS()))
+  .pipe(gulpif(env === "serve", sourcemaps.write())) 
+  .pipe(gulp.dest(DIST_PATH + '/styles'))
   .pipe(browserSync.stream()); 
 };
 
 const compilePug = () => {
-  return gulp.src('src/pages/*.pug')
+  return gulp.src(SRC_PATH + '/pages/*.pug')
   .pipe(pug({
     pretty: true,
   }))
-  .pipe(gulp.dest('dist'))
+  .pipe(gulp.dest(DIST_PATH))
 }
 
 const copyImg = () => {
-  return gulp.src('src/assets/*.*')
-    .pipe(gulp.dest("dist/images"));
+  return gulp.src(SRC_PATH + '/assets/*.*')
+    .pipe(gulp.dest(DIST_PATH + '/images'));
 };
 
 const concatJS = () => {
-  return gulp.src('./src/js/*.js')
-  .pipe(sourcemaps.init()) 
+  return gulp.src(SRC_PATH + '/js/*.js')
+  .pipe(gulpif(env === "serve", sourcemaps.init())) 
   .pipe(concat('main.js'))
-  .pipe(babel({
+  .pipe(gulpif(env === "build", babel({
     presets: ['@babel/env']
-  }))
-  .pipe(sourcemaps.write()) 
-  .pipe(gulp.dest('dist/js'));
+  })))
+  .pipe(gulpif(env === "serve", sourcemaps.write())) 
+  .pipe(gulp.dest(DIST_PATH + '/js'));
 };
 
 const copyVendorsJS = () => {
-  return gulp.src('src/js/vendors/*.js')
-    .pipe(gulp.dest("dist/js"));
+  return gulp.src(SRC_PATH + '/js/vendors/*.js')
+    .pipe(gulp.dest(DIST_PATH + '/js'));
 };
 
 const copySlickFiles = () => {
-  return gulp.src('src/assets/slick/**')
-    .pipe(gulp.dest("dist/styles"));
+  return gulp.src(SRC_PATH + '/assets/slick/**')
+    .pipe(gulp.dest(DIST_PATH + '/styles'));
 };
 
-exports.default = gulp.series(clean, copyImg, copyVendorsJS, copySlickFiles, compilePug, compileScss, concatJS, watchers, server); 
+exports.serve = gulp.series(
+  clean, 
+  gulp.parallel(copyImg, copyVendorsJS, copySlickFiles, compilePug, compileScss, concatJS), 
+  gulp.parallel(watchers, server)
+); 
+
+exports.build = gulp.series(
+  clean, 
+  gulp.parallel(copyImg, copyVendorsJS, copySlickFiles, compilePug, compileScss, concatJS), 
+); 

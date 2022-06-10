@@ -4,13 +4,14 @@
   "private": true,
   "description": "Учебный курс по продвинутой верстке от Kokoc Group",
   "scripts": {
-    "build": "gulp",
-    "start": "gulp"
+    "serve": "cross-env NODE_ENV=dev gulp serve",
+    "build": "cross-env NODE_ENV=prod gulp build"
   },
   "devDependencies": {
     "@babel/core": "^7.18.2",
     "@babel/preset-env": "^7.18.2",
     "browser-sync": "^2.27.10",
+    "cross-env": "^7.0.3",
     "del": "^6.1.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
@@ -18,6 +19,7 @@
     "gulp-clean-css": "^4.3.0",
     "gulp-concat": "^2.6.1",
     "gulp-group-css-media-queries": "^1.2.2",
+    "gulp-if": "^3.0.0",
     "gulp-pug": "^5.0.0",
     "gulp-sass": "^5.1.0",
     "gulp-sass-glob": "^1.1.0",
