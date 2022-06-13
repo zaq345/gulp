@@ -18,6 +18,8 @@ const gulpif = require('gulp-if');
 const {SRC_PATH, DIST_PATH} = require('./gulp.config')
 const env = process.env.NODE_ENV;
 
+const sassLint = require('gulp-sass-lint');
+
 /**
  * Очищаем папку dist
  */
@@ -101,13 +103,27 @@ const copySlickFiles = () => {
     .pipe(gulp.dest(DIST_PATH + '/styles'));
 };
 
+const sassLintCheck = () => {
+  return gulp.src('sass/**/*.s+(a|c)ss')
+    .pipe(sassLint({
+      configFile: '.scss-lint.yml',
+      files: {
+        include: 'src/**/*.scss'
+      }
+    }))
+    .pipe(sassLint.format())
+    .pipe(sassLint.failOnError())
+};
+
 exports.serve = gulp.series(
   clean, 
+  sassLintCheck,
   gulp.parallel(copyImg, copyVendorsJS, copySlickFiles, compilePug, compileScss, concatJS), 
   gulp.parallel(watchers, server)
 ); 
 
 exports.build = gulp.series(
   clean, 
+  sassLintCheck,
   gulp.parallel(copyImg, copyVendorsJS, copySlickFiles, compilePug, compileScss, concatJS), 
 ); 
