@@ -103,6 +103,7 @@ const copySlickFiles = () => {
     .pipe(gulp.dest(DIST_PATH + '/styles'));
 };
 
+
 const sassLintCheck = () => {
   return gulp.src('sass/**/*.s+(a|c)ss')
     .pipe(sassLint({
