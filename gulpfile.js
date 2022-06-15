@@ -2,23 +2,19 @@ const gulp = require("gulp");
 const del = require("del");
 const browserSync = require("browser-sync").create();
 const sass = require('gulp-sass')(require('sass'));
-//
 const sourcemaps = require('gulp-sourcemaps');
 const sassGlob = require('gulp-sass-glob');
 const autoprefixer = require('gulp-autoprefixer');
 const gcmq = require('gulp-group-css-media-queries');
 const cleanCSS = require('gulp-clean-css');
-
 const pug = require('gulp-pug');
-
 const concat = require('gulp-concat');
 const babel = require('gulp-babel');
-
 const gulpif = require('gulp-if');
+const scsslint = require('gulp-scss-lint');
+
 const {SRC_PATH, DIST_PATH} = require('./gulp.config')
 const env = process.env.NODE_ENV;
-
-const sassLint = require('gulp-sass-lint');
 
 /**
  * Очищаем папку dist
@@ -48,7 +44,8 @@ const reload = (done) => {
 // следим за html
 const watchers = (done) => {
   gulp.watch(SRC_PATH + '/**/*.pug', gulp.series(compilePug, reload));
-  gulp.watch(SRC_PATH + '/**/*.scss', gulp.series(compileScss));
+  //gulp.watch(SRC_PATH + '/**/*.scss', gulp.series(compileScss));
+  gulp.watch(SRC_PATH + '/**/*.scss', gulp.parallel(scssLintCheck, compileScss));
   gulp.watch(SRC_PATH + '/assets/*.*', gulp.series(copyImg, reload));
   gulp.watch(SRC_PATH + '/**/*.js', gulp.series(concatJS, reload));
   gulp.watch(SRC_PATH + '/assets/slick/*.*', gulp.series(reload))
@@ -104,27 +101,22 @@ const copySlickFiles = () => {
 };
 
 
-const sassLintCheck = () => {
-  return gulp.src('sass/**/*.s+(a|c)ss')
-    .pipe(sassLint({
-      configFile: '.scss-lint.yml',
-      files: {
-        include: 'src/**/*.scss'
-      }
+const scssLintCheck = () => {
+  return gulp.src('src/**/*.scss')
+    .pipe(scsslint({
+      'config': '.scss-lint.yml'
     }))
-    .pipe(sassLint.format())
-    .pipe(sassLint.failOnError())
+    //.pipe(scsslint.failReporter())
+    
 };
 
 exports.serve = gulp.series(
   clean, 
-  sassLintCheck,
-  gulp.parallel(copyImg, copyVendorsJS, copySlickFiles, compilePug, compileScss, concatJS), 
+  gulp.parallel(scssLintCheck, copyImg, copyVendorsJS, copySlickFiles, compilePug, compileScss, concatJS), 
   gulp.parallel(watchers, server)
 ); 
 
 exports.build = gulp.series(
   clean, 
-  sassLintCheck,
-  gulp.parallel(copyImg, copyVendorsJS, copySlickFiles, compilePug, compileScss, concatJS), 
+  gulp.parallel(scssLintCheck, copyImg, copyVendorsJS, copySlickFiles, compilePug, compileScss, concatJS), 
 ); 
