@@ -3,38 +3,37 @@
   color: $font-color;
   font-size: $font-size;
   border-radius: $rad;
-
   min-width: 125px;
-  //height: 50px;
-
   padding: 0.5em 1.2em;
+
   &:hover{
     cursor: pointer;
-    //filter: brightness(150%);
     background-color: lighten($bkg-color, 15%);
   }
+
   &:disabled{
     cursor: default;
-    //filter: brightness(50%);
     background-color: darken($bkg-color, 15%);
   }
 }
 
 @mixin createThemeButtons($themePallete, $bkg-color, $font-color, $font-size, $rad) {
 
-    @include makeButton($bkg-color, $font-color, $font-size, $rad);
-    
-    @each $status, $color in $themePallete {
-      &_#{$status} {
-        background: $color;
-        &:hover{
-          background-color: lighten($color, 15%);
-        }
-        &:disabled{
-          background-color: darken($bkg-color, 15%);
-        }
+  @include makeButton($bkg-color, $font-color, $font-size, $rad);
+  
+  @each $status, $color in $themePallete {
+    &_#{$status} {
+      background: $color;
+
+      &:hover{
+        background-color: lighten($color, 15%);
+      }
+
+      &:disabled{
+        background-color: darken($bkg-color, 15%);
       }
     }
+  }
 }
 
 $themePallete: ( 
@@ -52,8 +51,10 @@ $themePallete: (
   height: 50px;
   border-radius: 5px;
   color: #ffffff;
+
+  &:disabled{
+    @extend .btn;
+    background-color: gray;
+  }
 }
-.btn:disabled{
-  @extend .btn;
-  background-color: gray;
-}
+
