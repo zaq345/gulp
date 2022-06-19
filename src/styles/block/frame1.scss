@@ -1,0 +1,67 @@
+.frame1{
+  &__wrapper{
+    position: relative;
+    margin: auto;
+    margin-top: 40px;
+    width: 1140px;
+    // padding: 0 20px;
+  }
+
+  &__backgroungBig{
+    // position: absolute;
+    // height: 0; 
+    // width: 863px;
+    // border-top: 650px solid $orange;
+    // border-right: 325px solid $orange;
+    // background: linear-gradient(90deg, $orange, #ffffff);
+    // //opacity: 0.1;
+    // display: none;
+
+    position: absolute;
+    z-index: -10;
+    top: 0;
+    left: 150px;
+
+    height: 0; 
+    width: 1000px;
+    border-top: 650px solid $orange;
+    border-right: 188px solid transparent;
+    opacity: 0.1;
+  }
+
+  &__header{
+    display: flex;
+  }
+
+  &__menu{
+    display: flex;
+    margin-left: 100px;
+  }
+
+  &__menu-item{
+    margin: auto;
+    margin-right: 40px;
+    text-decoration: none;
+    color: #000000;
+    font-family: Poppins;
+    font-size: 16px;
+    &:hover{
+      color: $orange;
+    }
+  }
+
+  &__button{
+    margin-left: 437px;
+    width: 139px;
+    height: 59px;
+    border-radius: 5px;
+    border: 0;
+    font-family: Poppins;
+    font-size: 18px;
+    font-weight: 500;
+    background-color: $orange;
+    color: #ffffff;
+  }
+
+
+}

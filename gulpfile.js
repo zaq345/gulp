@@ -101,6 +101,16 @@ const copySlickFiles = () => {
     .pipe(gulp.dest(DIST_PATH + '/styles'));
 };
 
+const copyFontFiles = () => {
+  return gulp.src(SRC_PATH + '/assets/fonts/*.*')
+    .pipe(gulp.dest(DIST_PATH + '/styles/fonts'));
+};
+
+const copyNormalize = () => {
+  return gulp.src(SRC_PATH + '/styles/normalize.css')
+    .pipe(gulp.dest(DIST_PATH + '/styles'));
+};
+
 const sassLintCheck = () => {
   return gulp.src('src/**/*.scss')
     .pipe(sassLint({
@@ -115,11 +125,11 @@ const sassLintCheck = () => {
 
 exports.serve = gulp.series(
   clean, 
-  gulp.parallel(sassLintCheck, copyImg, copyVendorsJS, copySlickFiles, compilePug, compileScss, concatJS), 
+  gulp.parallel(sassLintCheck, copyImg, copyVendorsJS, copySlickFiles, copyFontFiles, copyNormalize, compilePug, compileScss, concatJS), 
   gulp.parallel(watchers, server)
 ); 
 
 exports.build = gulp.series(
   clean, 
-  gulp.parallel(sassLintCheck, copyImg, copyVendorsJS, copySlickFiles, compilePug, compileScss, concatJS), 
+  gulp.parallel(sassLintCheck, copyImg, copyVendorsJS, copySlickFiles, copyFontFiles, copyNormalize, compilePug, compileScss, concatJS), 
 ); 
