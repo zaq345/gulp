@@ -1,18 +1,27 @@
-mixin card(imagePath, name, parameters, price)
-  .card
-    .card__wrapper
-      .card__up
-        if imagePath
-          img.card__foto(src=imagePath, alt="Изображение товара")
-        else 
-          img.card__foto(src="./images/noProduct.png", alt="Изображение товара отсутствует")
-      .card__down
-        .card__down-wrapper
-          .card__name= name
-          .card__parameters 
-            each parameter, nameParameter  in parameters
-              p.card__parameter= nameParameter+parameter
-          if price 
-            .card__price= price+" Руб/шт"
-          else 
-            .card__price= "Цена по запросу"
+//- mixin card(imagePath, name, parameters, price)
+//-   .card
+//-     .card__wrapper
+//-       .card__up
+//-         if imagePath
+//-           img.card__foto(src=imagePath, alt="Изображение товара")
+//-         else 
+//-           img.card__foto(src="./images/noProduct.png", alt="Изображение товара отсутствует")
+//-       .card__down
+//-         .card__down-wrapper
+//-           .card__name= name
+//-           .card__parameters 
+//-             each parameter, nameParameter  in parameters
+//-               p.card__parameter= nameParameter+parameter
+//-           if price 
+//-             .card__price= price+" Руб/шт"
+//-           else 
+//-             .card__price= "Цена по запросу"
+
+mixin card(imagePath, name, className, text='Lorem ipsum dolor sit consectetur adipiscing elit. Viverra in ul')
+  div(class=`${className}__card`)
+    img(class=`${className}__card-pic` src=`${imagePath}` alt="card-pic")
+    p(class=`${className}__card-name`)= name
+    p(class=`${className}__card-text`)= text
+    a(class=`${className}__card-link` href="#") Read more  
+
+
