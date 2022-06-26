@@ -1,0 +1,21 @@
+include ../../templates/mixins/_frame4Slider
+
+.frame4 
+  .frame4__wrapper 
+    p.frame4__header GALLARY
+    p.frame4__text 40+ YEARS’ EXPERIENCE
+    .frame4__menu 
+      p.frame4__menu-name Categories:
+      .frame4__menu-item.frame4__filter-all(data-filter='All') All
+      .frame4__menu-item.frame4__filter-male(data-filter='Male') Male
+      .frame4__menu-item.frame4__filter-female(data-filter='Female') Female
+      .frame4__menu-item.frame4__filter-kids(data-filter='Kids') Kids
+      button.frame4__slider-next-btn 
+      button.frame4__slider-prev-btn 
+
+    
+    - var imagePaths = ['./images/frame4-male1.png']
+    - var names = ['Puma RS-X Bold']
+    - var prices = ['$200']
+    - var sizes = ['Dubble-XL']
+    +frame4Slider('frame4', imagePaths, names, sizes, prices)

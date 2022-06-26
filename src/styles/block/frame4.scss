@@ -1,0 +1,159 @@
+.frame4{
+  &__wrapper{
+    position: relative;
+    margin: auto;
+    margin-top: 124px;
+    width: 1140px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__header{
+    font-family: Source Serif Pro;
+    font-weight: 600;
+    font-size: 20px;
+    color: $orange;
+    letter-spacing: 0.05em;
+  }
+
+  &__text{
+    font-family: Source Serif Pro;
+    font-weight: 600;
+    font-size: 44px;
+    margin-top: 0;
+    margin-bottom: 0;
+    letter-spacing: 0.005em;
+  }
+
+  &__menu{
+    display: flex;
+    position: relative;
+  }
+
+  &__menu-name{
+    margin-top: 22px;
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 20px;
+    letter-spacing: 0.05em;
+  }
+
+  &__menu-item{
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 18px;
+    margin: auto 0;
+    margin-top: 24px;
+    margin-left: 35px;
+    letter-spacing: 0.05em;
+  }
+
+  &__slider-next-btn{
+    position: absolute;
+    right: 0;
+    top: 7px;
+
+    border: 0;
+    padding: 0;
+
+    width: 50px;
+    height: 50px;
+    background: url('../images/frame4-slider-btn-next.svg') 0 0 / 100% no-repeat;
+ 
+  }
+
+  &__slider-prev-btn{
+    position: absolute;
+    right: 100px;
+    top: 7px;
+
+    border: 0;
+    padding: 0;
+
+    width: 50px;
+    height: 50px;
+    background: url('../images/frame4-slider-btn-prev.svg') 0 0 / 100% no-repeat;
+ 
+  }
+
+  &__slider{
+    margin-top: 44px;
+  }
+
+  &__slider-card{
+    position: relative;
+    width: 263px;
+    height: 371px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__slider-card-pic{
+    width: 263px;
+    height: 170px;
+    // &:hover{
+    //   border-radius: 10px;
+    //   border: 2px solid $orange;
+    // }
+  }
+
+  &__slider-card-name{
+    font-family: Source Serif Pro;
+    margin-top: 32px;
+    margin-bottom: 0;
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: 0.005em;
+  }
+
+  &__slider-card-price-wrapper{
+    display: flex;
+    flex-direction: row;
+    margin-top: 18px;
+  }
+  &__slider-card-price{
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+    font-family: Poppins;
+    font-weight: 400;
+    // letter-spacing: 0.05em;
+    &:nth-child(1){
+      opacity: 0.7;
+    }
+    &:nth-child(2){
+      margin-left: 10px;
+      font-weight: 500;
+    }
+  }
+
+  &__slider-card-size-wrapper{
+    display: flex;
+    flex-direction: row;
+    margin-top: 18px;
+  }
+  &__slider-card-size{
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+    font-family: Poppins;
+    font-weight: 400;
+    &:nth-child(1){
+      opacity: 0.7;
+    }
+    &:nth-child(2){
+      margin-left: 10px;
+      font-weight: 500;
+    }
+  }
+
+  &__slider-card-button{
+    width: 128px;
+    height: 56px;
+    color: #ffffff;
+    background-color: $orange;
+    border: 0;
+    border-radius: 5px;
+    margin-top: 12px;
+  }
+}

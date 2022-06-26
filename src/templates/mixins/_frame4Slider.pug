@@ -1,0 +1,22 @@
+//- mixin slider(className, imagePath)
+//-   div(class=`${className}__slider`)
+//-     each path in imagePath 
+//-       //-div(class=`${className}__slider-pic-wrapper`)
+//-       img(class=`${className}__slider-pic`, src=path, alt="Изображение товара")
+
+mixin frame4Slider(className, imagePath, names, sizes, prices)
+  div(class=`${className}__slider`)
+    div(class=`${className}__slider-card`)
+      each path in imagePath 
+        img(class=`${className}__slider-card-pic`, src=path, alt="Изображение товара")
+      each name in names 
+        p(class=`${className}__slider-card-name`)= name
+      each size in sizes 
+        div(class=`${className}__slider-card-size-wrapper`)
+          p(class=`${className}__slider-card-size`)= 'Size:  '
+          p(class=`${className}__slider-card-size`)= size
+      each price in prices 
+        div(class=`${className}__slider-card-price-wrapper`)
+          p(class=`${className}__slider-card-price`)= 'Price: '
+          p(class=`${className}__slider-card-price`)= price
+      +button("Buy now", `${className}__slider-card-button`)
