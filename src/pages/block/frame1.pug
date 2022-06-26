@@ -1,3 +1,5 @@
+include ../../templates/mixins/_mainSlider
+
 .frame1
   div.frame1__backgroungBig
 
@@ -5,11 +7,11 @@
   
     header.frame1__header 
       img(src="./images/logo.svg" alt="logo pic").frame1__logo 
-      .frame1__menu 
-        a(href="#").frame1__menu-item Menu
-        a(href="#").frame1__menu-item About
-        a(href="#").frame1__menu-item Feature
-        a(href="#").frame1__menu-item Gallary
+      .frame1__navMenu 
+        a(href="#").frame1__navMenu-item Menu
+        a(href="#").frame1__navMenu-item About
+        a(href="#").frame1__navMenu-item Feature
+        a(href="#").frame1__navMenu-item Gallary
       +button("Buy now", "frame1__button-header") 
 
     .frame1__wrapper-center 
@@ -17,6 +19,33 @@
         p.frame1__text-1-part-1 Life is better <br> in running
         p.frame1__text-1-part-2 shoes
         p.frame1__text-2 Lorem ipsum dolor sit amet, consectetur <br> adipiscing elit. Egestas leo ultrices 
-      .frame1__slider 
+      .frame1__slider-wrapper 
+        img.frame1__slider-background(src="./images/frame1-slider-background.svg" alt="frame1-slider-background") 
+        +slider('frame1', ['./images/frame1-cross1.png', './images/frame1-cross2.png'])
+        button.frame1__slider-next-btn 
 
     .frame1__menu
+      .frame1__menu-col
+        p.frame1__menu-name Brand
+        select(name="").frame1__menu-select
+          option(value="0" ) Puma
+          option(value="1" ) Nike
+      img(src="./images/frame1-line.svg" alt="line pic").frame1__menu-line
+      .frame1__menu-col 
+        p.frame1__menu-name Person
+        select(name="").frame1__menu-select
+          option(value="0" ) Man
+          option(value="1" ) Women
+      img(src="./images/frame1-line.svg" alt="line pic").frame1__menu-line
+      .frame1__menu-col
+        p.frame1__menu-name Size
+        select(name="").frame1__menu-select
+          option(value="0" ) Large
+          option(value="1" ) Small
+      img(src="./images/frame1-line.svg" alt="line pic").frame1__menu-line
+      .frame1__menu-col
+        p.frame1__menu-name Price
+        select(name="").frame1__menu-select
+          option(value="0" ) $150
+          option(value="1" ) $250
+      +button("Buy now", "frame1__button-menu")

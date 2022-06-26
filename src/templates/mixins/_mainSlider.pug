@@ -1,5 +1,5 @@
-mixin slider(imagePath)
-  .slider
+mixin slider(className, imagePath)
+  div(class=`${className}__slider`)
     each path in imagePath 
-      .pic-wrapper
-        img.pic-wrapper__pic(src=path, alt="Изображение товара")
+      //-div(class=`${className}__slider-pic-wrapper`)
+      img(class=`${className}__slider-pic`, src=path, alt="Изображение товара")

@@ -1,0 +1,71 @@
+.frame2{
+  &__wrapper{
+    position: relative;
+    margin: auto;
+    margin-top: 184px;
+    width: 1140px;
+
+    display: flex;
+  }
+
+  &__texts{
+    width: 340px;
+  }
+
+  &__text-1{
+    font-family: Source Serif Pro;
+    color: $orange;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 150%;
+  }
+
+  &__text-2{
+    margin-top: -10px;
+    font-family: Source Serif Pro;
+    font-size: 44px;
+    font-weight: 600;
+    line-height: 130%;
+  }
+
+  &__text-3{
+    margin-top: -24px;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 400;
+    opacity: 0.7;
+    line-height: 160%;
+  }
+
+  &__imgs{
+    width: 555px;
+    height: 326px;
+    margin-left: 245px;
+    margin-top: 10px;
+    position: relative;
+    display: flex;
+  }
+
+  &__img-main{
+    position: absolute;
+    z-index: -5;
+
+  }
+
+  &__img-blur{
+    right: -50px;
+    top: -55px;
+    position: absolute;
+    z-index: -10;
+  }
+
+  &__button{
+    margin: auto;
+    width: 100px;
+    height: 100px;
+    padding: 0;
+    border: 0;
+    background: url('../images/frame2-button.svg');
+    z-index: 10;
+  }
+}
