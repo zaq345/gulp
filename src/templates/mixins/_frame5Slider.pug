@@ -1,0 +1,11 @@
+mixin frame5Slider(className, imagePath, headers, texts, names, statuses)
+  div(class=`${className}__slider`)
+    - var count = imagePath.length
+    - for(var n = 0; n < count; n++)
+      div(class=`${className}__slider-card`)
+        img(class=`${className}__slider-card-pic`, src=imagePath[n], alt="foto")
+        img(class=`${className}__slider-card-qm`, src='./images/frame5-qm.svg', alt="qm")
+        p(class=`${className}__slider-card-header`)= headers[n]
+        p(class=`${className}__slider-card-text`)= texts[n]
+        p(class=`${className}__slider-card-name`)= names[n]
+        p(class=`${className}__slider-card-status`)= statuses[n]

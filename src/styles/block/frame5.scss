@@ -1,0 +1,103 @@
+.frame5{
+  &__wrapper{
+    position: relative;
+    margin: auto;
+    width: 1140px;
+  }
+
+  &__header{
+    
+    font-family: Source Serif Pro;
+    font-weight: 600;
+    font-size: 44px;
+    margin: auto;
+    margin-top: 142px;
+    width: 256px;
+    letter-spacing: 0.008em;
+  }
+
+  &__content-wrapper{
+    margin-top: 62px;
+    display: flex;
+  }
+
+  &__slider-wrapper{
+    margin-left: 127px;
+  }
+
+  &__slider-next-btn{
+    position: absolute;
+    right: 0;
+    z-index: 10;
+
+    border: 0;
+    padding: 0;
+
+    width: 50px;
+    height: 50px;
+    background: url('../images/frame5-slider-btn-next.svg') 0 0 / 100% no-repeat;
+ 
+  }
+
+  &__slider-prev-btn{
+    position: absolute;
+    right: 100px;
+    z-index: 10;
+
+    border: 0;
+    padding: 0;
+
+    width: 50px;
+    height: 50px;
+    background: url('../images/frame5-slider-btn-prev.svg') 0 0 / 100% no-repeat;
+ 
+  }
+
+  &__slider{
+    width: 458px;
+    height: 364px;
+  }
+
+  &__slider-card-pic{
+    margin-top: 7px;
+  }
+
+  &__slider-card-qm{
+    margin-top: 30px;
+  }
+
+  &__slider-card-header{
+    margin-top: 13px;
+    font-family: Source Serif Pro;
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: 0.008em;
+  }
+
+  &__slider-card-text{
+    margin-top: -2px;
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 14px;
+    font-style: italic;
+    line-height: 160%;
+    letter-spacing: 0.008em;
+    width: 390px;
+  }
+
+  &__slider-card-name{
+    margin-top: 30px;
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: 0.008em;
+  }
+
+  &__slider-card-status{
+    margin-top: -2px;
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0.008em;
+  }
+}

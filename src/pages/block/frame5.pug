@@ -1,0 +1,16 @@
+include ../../templates/mixins/_frame5Slider
+
+.frame5   
+  .frame5__wrapper
+    p.frame5__header Testimonials
+    .frame5__content-wrapper 
+      img(src='./images/frame5-foto.png').frame5__foto
+      .frame5__slider-wrapper 
+        button.frame5__slider-next-btn 
+        button.frame5__slider-prev-btn 
+        -var imagePath = ['./images/frame5-face.png', './images/frame5-face.png']
+        -var headers = ['Their services was best and friendly', 'Their services was best and friendly 1']
+        -var texts = ['Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus tempor id faucibus quam lobortis.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus tempor id faucibus quam lobortis. 1']
+        -var names = ['Abram Korsgaard', 'Abram Korsgaard']
+        -var statuses = ['Athletic', 'Athletic']
+        +frame5Slider('frame5', imagePath, headers, texts, names, statuses)
