@@ -4,19 +4,42 @@
 //-       //-div(class=`${className}__slider-pic-wrapper`)
 //-       img(class=`${className}__slider-pic`, src=path, alt="Изображение товара")
 
-mixin frame4Slider(className, imagePath, names, sizes, prices)
+mixin frame4Slider(className, imagePath, names, sizes, prices, types)
   div(class=`${className}__slider`)
-    div(class=`${className}__slider-card`)
-      each path in imagePath 
-        img(class=`${className}__slider-card-pic`, src=path, alt="Изображение товара")
-      each name in names 
-        p(class=`${className}__slider-card-name`)= name
-      each size in sizes 
+    - var count = imagePath.length
+    //- - console.log(count)
+    //- - console.log(imagePath[0])
+    - for(var n = 0; n < count; n++)
+      div(class=`${className}__slider-card` data-filter=`${types[n]}`)
+        //- each path in imagePath 
+        img(class=`${className}__slider-card-pic`, src=imagePath[n], alt="Изображение товара")
+        //- each name in names 
+        p(class=`${className}__slider-card-name`)= names[n]
+        //- each size in sizes 
         div(class=`${className}__slider-card-size-wrapper`)
           p(class=`${className}__slider-card-size`)= 'Size:  '
-          p(class=`${className}__slider-card-size`)= size
-      each price in prices 
+          p(class=`${className}__slider-card-size`)= sizes[n]
+        //- each price in prices 
         div(class=`${className}__slider-card-price-wrapper`)
           p(class=`${className}__slider-card-price`)= 'Price: '
-          p(class=`${className}__slider-card-price`)= price
-      +button("Buy now", `${className}__slider-card-button`)
+          p(class=`${className}__slider-card-price`)= prices[n]
+        +button("Buy now", `${className}__slider-card-button`)
+
+
+
+      //- v1
+
+      //- div(class=`${className}__slider-card`)
+      //-   each path in imagePath 
+      //-     img(class=`${className}__slider-card-pic`, src=path, alt="Изображение товара")
+      //-   each name in names 
+      //-     p(class=`${className}__slider-card-name`)= name
+      //-   each size in sizes 
+      //-     div(class=`${className}__slider-card-size-wrapper`)
+      //-       p(class=`${className}__slider-card-size`)= 'Size:  '
+      //-       p(class=`${className}__slider-card-size`)= size
+      //-   each price in prices 
+      //-     div(class=`${className}__slider-card-price-wrapper`)
+      //-       p(class=`${className}__slider-card-price`)= 'Price: '
+      //-       p(class=`${className}__slider-card-price`)= price
+      //-   +button("Buy now", `${className}__slider-card-button`)

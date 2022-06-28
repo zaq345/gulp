@@ -14,8 +14,14 @@ include ../../templates/mixins/_frame4Slider
       button.frame4__slider-prev-btn 
 
     
-    - var imagePaths = ['./images/frame4-male1.png']
-    - var names = ['Puma RS-X Bold']
-    - var prices = ['$200']
-    - var sizes = ['Dubble-XL']
-    +frame4Slider('frame4', imagePaths, names, sizes, prices)
+    - var imagePaths = ['./images/frame4-male1.png', './images/frame4-male2.png', './images/frame4-male3.png', './images/frame4-male4.png', './images/frame4-male2.png', './images/frame4-male3.png']
+    - var names = ['Puma RS-X Bold', 'Puma Sneakers', 'Puma Ferrari', 'Puma Running', 'Puma Sneakers', 'Puma Ferrari']
+    - var prices = ['$200', '$180', '$190', '$200', '$180', '$190']
+    - var sizes = ['Dubble-XL', 'Dubble-XL', 'Dubble-XL', 'Dubble-XL', 'XL', 'XS']
+    - var types = ['Male', 'Female', 'Kids', 'Male', 'Female', 'Kids']
+
+    +frame4Slider('frame4', imagePaths, names, sizes, prices, types)
+
+    
+
+    

@@ -46,6 +46,7 @@
     margin-top: 24px;
     margin-left: 35px;
     letter-spacing: 0.05em;
+    cursor: pointer;
   }
 
   &__slider-next-btn{
@@ -86,6 +87,8 @@
     height: 371px;
     display: flex;
     flex-direction: column;
+    // margin-left: 20px;
+    // margin-right: 10px;
   }
 
   &__slider-card-pic{
@@ -155,5 +158,8 @@
     border: 0;
     border-radius: 5px;
     margin-top: 12px;
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 16px;
   }
 }
