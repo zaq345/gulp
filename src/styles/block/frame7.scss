@@ -1,0 +1,22 @@
+.frame7{
+  &__wrapper{
+    background-color: lighten($orange, 47.5%);
+    display: block;
+    height: 441px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
+  &__footer{
+    position: relative;
+    margin: auto;
+    width: 1140px;
+  }
+
+  &__footer-sign{
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 16px;
+    text-align: center;
+  }
+}
