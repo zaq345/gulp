@@ -1,0 +1,69 @@
+.frame6{
+  &__wrapper{
+    position: relative;
+    margin: auto;
+    width: 1140px;
+    margin-top: 140px;
+    display: flex;
+  }
+
+  &__block{
+    // background-color: $blue;
+    background-color: lighten($blue, 29%);
+    border-radius: 0 10px 10px 0;
+    padding: 63px;
+  }
+
+  &__header{
+    font-family: Source Serif Pro;
+    font-weight: 600;
+    font-size: 31px;
+    margin-top: 5px;
+    letter-spacing: 0.008em;
+  }
+
+  &__text{
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 18px;
+    margin-top: -7px;
+    line-height: 160%;
+    letter-spacing: 0.001em;
+  }
+
+  &__form{
+    display: flex;
+  }
+
+  &__form-input{
+    margin-top: 17px;
+    width: 411px;
+    height: 51px;
+    padding: 0;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px 0 0 5px;
+    background-color: lighten($blue, 29%);
+    padding-left: 30px;
+    box-sizing: border-box;
+
+    &::placeholder{
+      font-family: 'Poppins';
+      font-weight: 400;
+      font-size: 14px;
+    }
+  }
+
+  &__form-button{
+    margin-top: 17px;
+    background-color: $orange;
+    width: 119px;
+    height: 51px;
+    border: 0;
+    border-radius: 0 5px 5px 0;
+    margin-left: -2px;
+    color: #ffffff;
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 14px;
+  }
+}
