@@ -7,16 +7,159 @@
     position: absolute;
     width: 100%;
   }
+
   &__footer{
     position: relative;
     margin: auto;
     width: 1140px;
   }
 
+  &__footer-main{
+    margin-top: 100px;
+    display: flex;
+  }
+
+  &__col{
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__col-1{
+    margin-right: 77px;
+  }
+
+  &__logo{
+    width: 94px;
+    margin-bottom: 6px;
+  }
+
+  &__address{
+    margin-left: 3px;
+    width: 203px;
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 160%;
+    margin-bottom: 24px;
+  }
+
+  &__email{
+    text-decoration: none;
+    color: #000000;
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 18px;
+  }
+
+  &__icons{
+    margin-top: 13px;
+    display: flex;
+  }
+  &__icon{
+    width: 20px;
+    height: 20px;
+    margin-right: 25px;
+  }
+  &__icon-fb{
+    background-image: url('../images/frame7-fb.svg');
+  }
+  &__icon-inst{
+    background-image: url('../images/frame7-inst.svg');
+  }
+  &__icon-tw{
+    background-image: url('../images/frame7-twitter.svg');
+  }
+  &__icon-gl{
+    background-image: url('../images/frame7-google.svg');
+  }
+
+  &__header{
+    margin-top: 11px;
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: 0.005em;
+    margin-bottom: 36px;
+  }
+
+  &__links{
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 160%;
+    text-decoration: none;
+    color: #000000;
+    margin-bottom: 10px;
+  }
+
+  &__col-2{
+    margin-right: 77px;
+  }
+
+  &__col-3{
+    margin-right: 125px;
+  }
+
+  &__text{
+    width: 250px;
+    margin-top: 0;
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 160%;
+  }
+
+  //
+  &__form{
+    display: flex;
+    width: 319px;
+    height: 52px;
+    margin-top: 20px;
+  }
+
+  &__form-input{
+    // margin-top: 17px;
+    width: 225px;
+    height: 51px;
+    padding: 0;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    background-color: lighten($orange, 47.5%);
+    border-radius: 5px 0 0 5px;
+    padding-left: 20px;
+    box-sizing: border-box;
+
+    &::placeholder{
+      font-family: 'Poppins';
+      font-weight: 400;
+      font-size: 14px;
+    }
+  }
+
+  &__form-button{
+    // margin-top: 17px;
+    background-color: $orange;
+    width: 96px;
+    height: 51px;
+    border: 0;
+    padding: 0;
+    border-radius: 0 5px 5px 0;
+    margin-left: -2px;
+    color: #ffffff;
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 14px;
+  }
+  //
+  &__footer-line{
+    margin-top: 40px;
+  }
+
   &__footer-sign{
+    margin-top: 29px;
     font-family: Poppins;
     font-weight: 500;
     font-size: 16px;
     text-align: center;
+    letter-spacing: 0.008em;
   }
 }
