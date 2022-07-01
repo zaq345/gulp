@@ -47,6 +47,9 @@
     margin-left: 35px;
     letter-spacing: 0.05em;
     cursor: pointer;
+    &:hover{
+      color: $orange;
+    }
   }
 
   &__slider-next-btn{
@@ -60,7 +63,9 @@
     width: 50px;
     height: 50px;
     background: url('../images/frame4-slider-btn-next.svg') 0 0 / 100% no-repeat;
- 
+    &:hover{
+      cursor: pointer;
+    }
   }
 
   &__slider-prev-btn{
@@ -74,7 +79,9 @@
     width: 50px;
     height: 50px;
     background: url('../images/frame4-slider-btn-prev.svg') 0 0 / 100% no-repeat;
- 
+    &:hover{
+      cursor: pointer;
+    }
   }
 
   &__slider{
@@ -87,17 +94,17 @@
     height: 371px;
     display: flex;
     flex-direction: column;
-    // margin-left: 20px;
-    // margin-right: 10px;
   }
 
   &__slider-card-pic{
     width: 263px;
     height: 170px;
-    // &:hover{
-    //   border-radius: 10px;
-    //   border: 2px solid $orange;
-    // }
+    &:hover{
+      box-sizing: border-box;
+      border-radius: 10px;
+      border: 2px solid $orange;
+      cursor: pointer;
+    }
   }
 
   &__slider-card-name{
@@ -120,7 +127,6 @@
     font-size: 16px;
     font-family: Poppins;
     font-weight: 400;
-    // letter-spacing: 0.05em;
     &:nth-child(1){
       opacity: 0.7;
     }
@@ -161,5 +167,8 @@
     font-family: Poppins;
     font-weight: 500;
     font-size: 16px;
+    &:hover{
+      cursor: pointer;
+    }
   }
 }

@@ -90,6 +90,9 @@
     text-decoration: none;
     color: #000000;
     margin-bottom: 10px;
+    &:hover{
+      color: $orange;
+    }
   }
 
   &__col-2{
@@ -136,7 +139,6 @@
   }
 
   &__form-button{
-    // margin-top: 17px;
     background-color: $orange;
     width: 96px;
     height: 51px;
@@ -148,6 +150,9 @@
     font-family: Poppins;
     font-weight: 500;
     font-size: 14px;
+    &:hover{
+      cursor: pointer;
+    }
   }
   //
   &__footer-line{

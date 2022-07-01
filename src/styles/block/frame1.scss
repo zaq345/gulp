@@ -2,15 +2,12 @@
   &__wrapper{
     position: relative;
     margin: auto;
-    // margin-top: 40px;
     width: 1140px;
   }
 
   &__backgroungBig{
     position: absolute;
-    // background-color: $orange;
     background: linear-gradient(90deg, $orange, #ffffff);
-    // width: 70.5%;
     width: 92%;
     height: 650px;
     opacity: 0.1;
@@ -61,6 +58,9 @@
     font-weight: 500;
     background-color: $orange;
     color: #ffffff;
+    &:hover{
+      cursor: pointer;
+    }
   }
 
   &__wrapper-center{
@@ -125,7 +125,9 @@
     width: 70px;
     height: 70px;
     background: url('../images/frame1-slider-button.svg') 0 0 / 100% no-repeat;
- 
+    &:hover{
+      cursor: pointer;
+    }
   }
 
   &__slider-background {
@@ -157,7 +159,6 @@
     width: 76px;
     display: flex;
     flex-direction: column;
-    // margin-right: 10px;
     &:nth-child(1){
       margin-right: 10px;
     }
@@ -177,10 +178,10 @@
     margin-top: -5px;
     margin-left: -5px;  
     border: 1px solid #ffffff;
-    // &::after{
-    //   // content: '';
-    //   // background-image: url('../images/frame1-arrow.svg');
-    // }
+    &::after{
+      content: '';
+      background-image: url('../images/frame1-arrow.svg');
+    }
   }
 
   &__menu-line{
@@ -196,7 +197,18 @@
     border: 0;
     border-radius: 5px;
     font-size: 16px;
+    &:hover{
+      cursor: pointer;
+    }
   }
 
 
 }
+
+// @media screen and (max-width: 768px) {
+
+// } 
+
+// @media screen and (max-width: 576px) {
+
+// }
