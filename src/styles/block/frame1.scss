@@ -178,10 +178,10 @@
     margin-top: -5px;
     margin-left: -5px;  
     border: 1px solid #ffffff;
-    &::after{
-      content: '';
-      background-image: url('../images/frame1-arrow.svg');
-    }
+    background-image: url('../images/frame1-arrow.svg');
+    background-repeat: no-repeat;
+    background-position: right 0% top 50%;
+    appearance: none;
   }
 
   &__menu-line{
