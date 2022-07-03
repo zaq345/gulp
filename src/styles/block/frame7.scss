@@ -6,26 +6,36 @@
     left: 0;
     position: absolute;
     width: 100%;
+    @media screen and (max-width: 767px) {
+      height: 720px;
+    }
   }
 
   &__footer{
     position: relative;
     margin: auto;
     width: 1140px;
+    @media screen and (max-width: 767px) {
+      width: 650px;
+    }
   }
 
   &__footer-main{
     margin-top: 100px;
     display: flex;
+    @media screen and (max-width: 767px) {
+      flex-wrap: wrap;
+    }
   }
 
   &__col{
     display: flex;
     flex-direction: column;
+    margin-bottom: 35px;
   }
 
   &__col-1{
-    margin-right: 77px;
+    margin-right: 50px;
   }
 
   &__logo{
@@ -101,6 +111,9 @@
 
   &__col-3{
     margin-right: 125px;
+    @media screen and (max-width: 767px) {
+      margin-right: 150px;
+    }
   }
 
   &__text{
@@ -136,6 +149,9 @@
       font-weight: 400;
       font-size: 14px;
     }
+    @media screen and (max-width: 767px) {
+      width: 150px;
+    }
   }
 
   &__form-button{
@@ -157,6 +173,9 @@
   //
   &__footer-line{
     margin-top: 40px;
+    @media screen and (max-width: 767px) {
+      width: 650px;
+    }
   }
 
   &__footer-sign{

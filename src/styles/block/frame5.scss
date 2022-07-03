@@ -3,6 +3,9 @@
     position: relative;
     margin: auto;
     width: 1140px;
+    @media screen and (max-width: 767px) {
+      width: 650px;
+    }
   }
 
   &__header{
@@ -19,10 +22,23 @@
   &__content-wrapper{
     margin-top: 62px;
     display: flex;
+    @media screen and (max-width: 767px) {
+      flex-wrap: wrap-reverse;
+    }
   }
 
   &__slider-wrapper{
     margin-left: 127px;
+    @media screen and (max-width: 767px) {
+      margin: auto;
+    }
+  }
+
+  &__foto{
+    @media screen and (max-width: 767px) {
+      margin: auto;
+      margin-top: 15px;
+    }
   }
 
   &__slider-next-btn{
@@ -39,6 +55,9 @@
     &:hover{
       cursor: pointer;
     }
+    @media screen and (max-width: 767px) {
+      right: 105px;
+    }
   }
 
   &__slider-prev-btn{
@@ -54,6 +73,9 @@
     background: url('../images/frame5-slider-btn-prev.svg') 0 0 / 100% no-repeat;
     &:hover{
       cursor: pointer;
+    }
+    @media screen and (max-width: 767px) {
+      right: 205px;
     }
   }
 
@@ -105,3 +127,4 @@
     letter-spacing: 0.008em;
   }
 }
+

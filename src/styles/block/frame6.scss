@@ -5,13 +5,25 @@
     width: 1140px;
     margin-top: 140px;
     display: flex;
+    @media screen and (max-width: 767px) {
+      width: 650px;
+      flex-direction: column;
+    }
+  }
+  &__img{
+    @media screen and (max-width: 767px) {
+      border-radius: 10px;
+    }
   }
 
   &__block{
-    // background-color: $blue;
     background-color: lighten($blue, 29%);
     border-radius: 0 10px 10px 0;
     padding: 63px;
+    @media screen and (max-width: 767px) {
+      border-radius: 10px;
+      
+    }
   }
 
   &__header{
@@ -70,3 +82,4 @@
     }
   }
 }
+

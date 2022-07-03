@@ -5,10 +5,17 @@
     margin-top: 184px;
     width: 1140px;
     display: flex;
+    @media screen and (max-width: 767px) {
+      width: 650px;
+      margin-top: 100px;
+      flex-direction: column;
+    }
   }
 
   &__texts{
     width: 340px;
+    margin: auto;
+    text-align: center;
   }
 
   &__text-1{
@@ -45,6 +52,10 @@
     margin-top: 10px;
     position: relative;
     display: flex;
+    @media screen and (max-width: 767px) {
+      margin: auto;
+      margin-top: 50px;
+    }
   }
 
   &__img-main{
@@ -58,6 +69,10 @@
     top: -55px;
     position: absolute;
     z-index: -10;
+    @media screen and (max-width: 767px) {
+      right: -20px;
+      top: -25px;
+    }
   }
 
   &__button{
@@ -73,3 +88,4 @@
     }
   }
 }
+

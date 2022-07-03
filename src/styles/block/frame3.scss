@@ -6,6 +6,9 @@
     width: 1140px;
     display: flex;
     flex-direction: column;
+    @media screen and (max-width: 767px) {
+      width: 650px;
+    }
   }
 
   &__header{
@@ -29,6 +32,7 @@
 
   &__card-wrapper{
     display: flex;
+    flex-wrap: wrap;
   }
 
   &__card{
@@ -47,6 +51,12 @@
     &:hover{
       box-shadow: none;
       background-color: lighten($orange, 44%);
+    }
+
+    @media screen and (max-width: 767px) {
+      width: 275px;
+      margin: auto;
+      margin-top: 15px;
     }
   }
 

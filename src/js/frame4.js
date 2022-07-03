@@ -5,6 +5,19 @@ $(document).ready(function(){
     slidesToScroll: 1,
     prevArrow: $('.frame4__slider-prev-btn'),
     nextArrow: $('.frame4__slider-next-btn'),
+    responsive: [{
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
+      }
+    }, {
+      breakpoint: 550,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }]
   });
 
   $(".frame4__menu-item").on('click', function(){
